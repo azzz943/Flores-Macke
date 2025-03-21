@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+   <html>
+   <head>
+       <title>Para Mi Amor 💛</title>
+       <style>
+           body { background: #fff0f5; text-align: center; font-family: 'Arial'; }
+           .mensaje { margin-top: 50px; font-size: 2em; color: #ff6b6b; }
+           .flores { position: fixed; font-size: 30px; animation: caer 5s linear infinite; }
+           @keyframes caer { 0% { transform: translateY(-100vh); } 100% { transform: translateY(100vh); } }
+           button { padding: 15px; background: #ffd700; border: none; border-radius: 25px; }
+       </style>
+   </head>
+   <body>
+       <div class="mensaje">
+           <h1>🌼 Para Mi Amor 🌼</h1>
+           <p>¡Eres la luz de mis días! 💛</p>
+           <button onclick="mostrarCorazon()">Tócame</button>
+           <p id="corazon" style="display: none;">💛 Te amo más cada día 💛</p>
+       </div>
+       <script>
+           function crearFlor() {
+               const flor = document.createElement('div');
+               flor.innerHTML = '🌼';
+               flor.className = 'flores';
+               flor.style.left = Math.random() * window.innerWidth + 'px';
+               flor.style.animationDuration = Math.random() * 3 + 2 + 's';
+               document.body.appendChild(flor);
+               setTimeout(() => flor.remove(), 5000);
+           }
+           setInterval(crearFlor, 300);
+           function mostrarCorazon() { document.getElementById('corazon').style.display = 'block'; }
+       </script>
+   </body>
+   </html>
