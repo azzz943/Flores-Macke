@@ -1,96 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Para Mi Amor 💐</title>
+    <title>Para Ti, Corazón 💛</title>
     <style>
         body {
-            background: #ffe6e6;
+            background: #fff9c4;
             text-align: center;
-            font-family: 'Arial';
+            font-family: 'Comic Sans MS', cursive;
             overflow: hidden;
         }
 
         .mensaje {
-            margin-top: 50px;
-            font-size: 2em;
-            color: #ff4444;
-            position: relative;
-            z-index: 2;
+            margin-top: 30px;
+            font-size: 2.5em;
+            color: #ff6d00;
+            text-shadow: 2px 2px #fffde7;
         }
 
-        /* Flores cayendo de fondo */
-        .flores {
+        .ramo {
+            width: 300px;
+            animation: flotar 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px #fff59d);
+        }
+
+        button {
+            padding: 20px 40px;
+            font-size: 1.5em;
+            background: linear-gradient(45deg, #ffd600, #ffab00);
+            border: none;
+            border-radius: 35px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(255, 179, 0, 0.4);
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1) rotate(-3deg);
+        }
+
+        .corazones {
             position: fixed;
             font-size: 30px;
-            animation: caer 5s linear infinite;
+            animation: lluvia 5s linear infinite;
         }
 
-        /* Ramo de flores */
-        .ramo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 50px;
-            animation: aparecer 1s ease-out;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        @keyframes caer {
+        @keyframes lluvia {
             0% { transform: translateY(-100vh) rotate(0deg); }
             100% { transform: translateY(100vh) rotate(360deg); }
         }
 
-        @keyframes aparecer {
-            0% { transform: translate(-50%, -30%); opacity: 0; }
-            100% { transform: translate(-50%, -50%); opacity: 1; }
-        }
-
-        button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            background: #ff69b4;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: transform 0.3s;
-        }
-
-        button:active {
-            transform: scale(0.95);
+        .mensaje-especial {
+            font-size: 2em;
+            color: #e65100;
+            margin-top: 30px;
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="mensaje">
-        <h1>💐 Para Mi Amor 💐</h1>
-        <p>Cada día contigo es un jardín en flor 🌸</p>
-        <button onclick="mostrarRamo()">¡Toca para tu ramo!</button>
+        <h1>🌻 Para Ti, Mi Amor 🌻</h1>
+        <button onclick="mostrarSorpresa()">¡Descubre tu Regalo!</button>
+        <p id="mensajeEspecial" class="mensaje-especial">Eres el sol que ilumina mi vida 💛</p>
     </div>
 
-    <script>
-        // Flores de fondo
-        function crearFlor() {
-            const flor = document.createElement('div');
-            flor.innerHTML = '🌸';
-            flor.className = 'flores';
-            flor.style.left = Math.random() * window.innerWidth + 'px';
-            flor.style.animationDuration = Math.random() * 3 + 2 + 's';
-            document.body.appendChild(flor);
-            setTimeout(() => flor.remove(), 5000);
-        }
-        setInterval(crearFlor, 300);
+    <img src="https://img.freepik.com/vector-gratis/ramo-flores-dibujado-mano_52683-84646.jpg?w=1380&t=st=1711785814~exp=1711786414~hmac=9fbd5a4e3a0d5a0a2dae8a2b9a3b3c3e6c1d9d3e4b4b4d4b4d4b4d4b4d4b4d4" 
+         alt="Ramo de flores" 
+         class="ramo" 
+         style="display: none;">
 
-        // Ramo de flores
-        function mostrarRamo() {
-            const ramo = document.createElement('div');
-            ramo.className = 'ramo';
-            ramo.innerHTML = '🌹🌻🌷🌼🌺💐';  // Diferentes flores
-            document.body.appendChild(ramo);
+    <script>
+        // Lluvia de corazones
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.innerHTML = '💛';
+            corazon.className = 'corazones';
+            corazon.style.left = Math.random() * window.innerWidth + 'px';
+            corazon.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(corazon);
+            setTimeout(() => corazon.remove(), 5000);
+        }
+        setInterval(crearCorazon, 300);
+
+        // Mostrar sorpresa
+        function mostrarSorpresa() {
+            document.querySelector('.ramo').style.display = 'block';
+            document.getElementById('mensajeEspecial').style.display = 'block';
             
-            // Eliminar el ramo después de 5 segundos (opcional)
-            setTimeout(() => ramo.remove(), 5000);
+            // Efecto de confeti
+            for(let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confeti = document.createElement('div');
+                    confeti.innerHTML = '✨';
+                    confeti.style.position = 'fixed';
+                    confeti.style.left = Math.random() * window.innerWidth + 'px';
+                    confeti.style.animation = `confeti 2s linear`;
+                    document.body.appendChild(confeti);
+                    setTimeout(() => confeti.remove(), 2000);
+                }, i * 50);
+            }
         }
     </script>
 </body>
