@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Para Mi Amor 💛</title>
+    <style>
+        body {
+            background: #fff0f5;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .mensaje {
+            margin-top: 50px;
+            font-size: 2em;
+            color: #ff6b6b;
+            animation: fadeIn 2s;
+        }
+
+        .flores {
+            position: fixed;
+            font-size: 30px;
+            animation: caer 5s linear infinite;
+        }
+
+        @keyframes caer {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: #ffd700;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mensaje">
+        <h1>🌼 Para Mi Amor 🌼</h1>
+        <p>¡Eres la luz de mis días y la flor más bella en mi jardín! 💛</p>
+        <button onclick="mostrarCorazon()">Haz clic aquí</button>
+        <p id="corazon" style="display: none;">💛 Te amo más cada día 💛</p>
+    </div>
+
+    <script>
+        // Crear flores amarillas animadas
+        function crearFlor() {
+            const flor = document.createElement('div');
+            flor.innerHTML = '🌼';
+            flor.className = 'flores';
+            flor.style.left = Math.random() * window.innerWidth + 'px';
+            flor.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(flor);
+
+            setTimeout(() => flor.remove(), 5000);
+        }
+
+        // Generar flores continuamente
+        setInterval(crearFlor, 300);
+
+        // Función para el botón
+        function mostrarCorazon() {
+            document.getElementById('corazon').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
