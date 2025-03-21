@@ -1,332 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="icon" href="img/flowers.png" type="image/x-icon" />
-    <title>Flower</title>
-  </head>
-  <body class="container">
-    <audio src="sound/ChristianBasso&HaienQiu-Flowers.mp3" autoplay></audio>
-    <div id="lyrics">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores para Ti Corazón 💛</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            background: #1a1a1a;
+            overflow: hidden;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
 
-    </div>
-    <h1 class="titulo">Estas flores amarillas son para ti. <br> <br>
-      💛.</h1>
+        .container {
+            position: relative;
+            height: 100vh;
+        }
 
-    <div class="night"></div>
-    <div class="flowers">
-      <div class="flower flower--1">
-        <div class="flower__leafs flower__leafs--1">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__white-circle"></div>
+        .titulo {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #FFD700;
+            text-align: center;
+            font-size: 2em;
+            z-index: 1000;
+        }
 
-          <div class="flower__light flower__light--1"></div>
-          <div class="flower__light flower__light--2"></div>
-          <div class="flower__light flower__light--3"></div>
-          <div class="flower__light flower__light--4"></div>
-          <div class="flower__light flower__light--5"></div>
-          <div class="flower__light flower__light--6"></div>
-          <div class="flower__light flower__light--7"></div>
-          <div class="flower__light flower__light--8"></div>
-        </div>
-        <div class="flower__line">
-          <div class="flower__line__leaf flower__line__leaf--1"></div>
-          <div class="flower__line__leaf flower__line__leaf--2"></div>
-          <div class="flower__line__leaf flower__line__leaf--3"></div>
-          <div class="flower__line__leaf flower__line__leaf--4"></div>
-          <div class="flower__line__leaf flower__line__leaf--5"></div>
-          <div class="flower__line__leaf flower__line__leaf--6"></div>
-        </div>
-      </div>
+        /* Animaciones de flores */
+        .flower {
+            position: absolute;
+            animation: grow 4s ease-out forwards;
+        }
 
-      <div class="flower flower--2">
-        <div class="flower__leafs flower__leafs--2">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__white-circle"></div>
+        @keyframes grow {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
 
-          <div class="flower__light flower__light--1"></div>
-          <div class="flower__light flower__light--2"></div>
-          <div class="flower__light flower__light--3"></div>
-          <div class="flower__light flower__light--4"></div>
-          <div class="flower__light flower__light--5"></div>
-          <div class="flower__light flower__light--6"></div>
-          <div class="flower__light flower__light--7"></div>
-          <div class="flower__light flower__light--8"></div>
-        </div>
-        <div class="flower__line">
-          <div class="flower__line__leaf flower__line__leaf--1"></div>
-          <div class="flower__line__leaf flower__line__leaf--2"></div>
-          <div class="flower__line__leaf flower__line__leaf--3"></div>
-          <div class="flower__line__leaf flower__line__leaf--4"></div>
-        </div>
-      </div>
+        .flower__leaf {
+            background: #FFD700;
+            width: 20px;
+            height: 40px;
+            border-radius: 50%;
+            position: absolute;
+        }
 
-      <div class="flower flower--3">
-        <div class="flower__leafs flower__leafs--3">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__white-circle"></div>
+        .flower__white-circle {
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-          <div class="flower__light flower__light--1"></div>
-          <div class="flower__light flower__light--2"></div>
-          <div class="flower__light flower__light--3"></div>
-          <div class="flower__light flower__light--4"></div>
-          <div class="flower__light flower__light--5"></div>
-          <div class="flower__light flower__light--6"></div>
-          <div class="flower__light flower__light--7"></div>
-          <div class="flower__light flower__light--8"></div>
-        </div>
-        <div class="flower__line">
-          <div class="flower__line__leaf flower__line__leaf--1"></div>
-          <div class="flower__line__leaf flower__line__leaf--2"></div>
-          <div class="flower__line__leaf flower__line__leaf--3"></div>
-          <div class="flower__line__leaf flower__line__leaf--4"></div>
-        </div>
-      </div>
+        /* Efecto de luces */
+        .flower__light {
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite;
+        }
 
-      <div class="grow-ans" style="--d: 1.2s">
-        <div class="flower__g-long">
-          <div class="flower__g-long__top"></div>
-          <div class="flower__g-long__bottom"></div>
-        </div>
-      </div>
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="container">
+    <audio id="audio" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/19/audio_5a5b8d2f0f.mp3" type="audio/mpeg">
+    </audio>
 
-      <div class="growing-grass">
-        <div class="flower__grass flower__grass--1">
-          <div class="flower__grass--top"></div>
-          <div class="flower__grass--bottom"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-          <div class="flower__grass__overlay"></div>
-        </div>
-      </div>
+    <h1 class="titulo">Estas flores amarillas son para ti.<br>💛</h1>
 
-      <div class="growing-grass">
-        <div class="flower__grass flower__grass--2">
-          <div class="flower__grass--top"></div>
-          <div class="flower__grass--bottom"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-          <div class="flower__grass__overlay"></div>
-        </div>
-      </div>
+    <div class="flowers" id="flowersContainer"></div>
 
-      <div class="grow-ans" style="--d: 2.4s">
-        <div class="flower__g-right flower__g-right--1">
-          <div class="leaf"></div>
-        </div>
-      </div>
+    <script>
+        // Función para crear flores dinámicas
+        function crearFlor(x, y) {
+            const flor = document.createElement('div');
+            flor.className = 'flower';
+            flor.style.left = x + 'px';
+            flor.style.top = y + 'px';
 
-      <div class="grow-ans" style="--d: 2.8s">
-        <div class="flower__g-right flower__g-right--2">
-          <div class="leaf"></div>
-        </div>
-      </div>
+            // Pétalos
+            for (let i = 0; i < 4; i++) {
+                const petalo = document.createElement('div');
+                petalo.className = `flower__leaf flower__leaf--${i + 1}`;
+                petalo.style.transform = `rotate(${i * 90}deg) translateY(-20px)`;
+                flor.appendChild(petalo);
+            }
 
-      <div class="grow-ans" style="--d: 2.8s">
-        <div class="flower__g-front">
-          <div
-            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1"
-          >
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div
-            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2"
-          >
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div
-            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3"
-          >
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div
-            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4"
-          >
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div
-            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5"
-          >
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div
-            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6"
-          >
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div
-            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7"
-          >
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div
-            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8"
-          >
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__line"></div>
-        </div>
-      </div>
+            // Centro de la flor
+            const centro = document.createElement('div');
+            centro.className = 'flower__white-circle';
+            flor.appendChild(centro);
 
-      <div class="grow-ans" style="--d: 3.2s">
-        <div class="flower__g-fr">
-          <div class="leaf"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
-        </div>
-      </div>
+            // Efecto de brillo
+            for (let i = 0; i < 8; i++) {
+                const luz = document.createElement('div');
+                luz.className = `flower__light flower__light--${i + 1}`;
+                luz.style.transform = `rotate(${i * 45}deg) translate(30px)`;
+                flor.appendChild(luz);
+            }
 
-      <div class="long-g long-g--0">
-        <div class="grow-ans" style="--d: 3s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 2.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
+            return flor;
+        }
 
-      <div class="long-g long-g--1">
-        <div class="grow-ans" style="--d: 3.6s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.8s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.2s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
+        // Generar flores al cargar la página
+        window.onload = function() {
+            const container = document.getElementById('flowersContainer');
+            for (let i = 0; i < 7; i++) {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                container.appendChild(crearFlor(x, y));
+            }
 
-      <div class="long-g long-g--2">
-        <div class="grow-ans" style="--d: 4s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-
-      <div class="long-g long-g--3">
-        <div class="grow-ans" style="--d: 4s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-
-      <div class="long-g long-g--4">
-        <div class="grow-ans" style="--d: 4s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-
-      <div class="long-g long-g--5">
-        <div class="grow-ans" style="--d: 4s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-
-      <div class="long-g long-g--6">
-        <div class="grow-ans" style="--d: 4.2s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.4s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.6s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.8s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-
-      <div class="long-g long-g--7">
-        <div class="grow-ans" style="--d: 3s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.5s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
-    </div>
-    <script src="anim.js"></script>
-    <script src="main.js"></script>
-  </body>
+            // Iniciar música
+            document.getElementById('audio').play();
+        };
+    </script>
+</body>
 </html>
