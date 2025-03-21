@@ -1,34 +1,97 @@
 <!DOCTYPE html>
-   <html>
-   <head>
-       <title>Para Mi Amor 💛</title>
-       <style>
-           body { background: #fff0f5; text-align: center; font-family: 'Arial'; }
-           .mensaje { margin-top: 50px; font-size: 2em; color: #ff6b6b; }
-           .flores { position: fixed; font-size: 30px; animation: caer 5s linear infinite; }
-           @keyframes caer { 0% { transform: translateY(-100vh); } 100% { transform: translateY(100vh); } }
-           button { padding: 15px; background: #ffd700; border: none; border-radius: 25px; }
-       </style>
-   </head>
-   <body>
-       <div class="mensaje">
-           <h1>🌼 Para Mi Amor 🌼</h1>
-           <p>¡Eres la luz de mis días! 💛</p>
-           <button onclick="mostrarCorazon()">Tócame</button>
-           <p id="corazon" style="display: none;">💛 Te amo más cada día 💛</p>
-       </div>
-       <script>
-           function crearFlor() {
-               const flor = document.createElement('div');
-               flor.innerHTML = '🌼';
-               flor.className = 'flores';
-               flor.style.left = Math.random() * window.innerWidth + 'px';
-               flor.style.animationDuration = Math.random() * 3 + 2 + 's';
-               document.body.appendChild(flor);
-               setTimeout(() => flor.remove(), 5000);
-           }
-           setInterval(crearFlor, 300);
-           function mostrarCorazon() { document.getElementById('corazon').style.display = 'block'; }
-       </script>
-   </body>
-   </html>
+<html>
+<head>
+    <title>Para Mi Amor 💐</title>
+    <style>
+        body {
+            background: #ffe6e6;
+            text-align: center;
+            font-family: 'Arial';
+            overflow: hidden;
+        }
+
+        .mensaje {
+            margin-top: 50px;
+            font-size: 2em;
+            color: #ff4444;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Flores cayendo de fondo */
+        .flores {
+            position: fixed;
+            font-size: 30px;
+            animation: caer 5s linear infinite;
+        }
+
+        /* Ramo de flores */
+        .ramo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            animation: aparecer 1s ease-out;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+        }
+
+        @keyframes caer {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        @keyframes aparecer {
+            0% { transform: translate(-50%, -30%); opacity: 0; }
+            100% { transform: translate(-50%, -50%); opacity: 1; }
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: #ff69b4;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="mensaje">
+        <h1>💐 Para Mi Amor 💐</h1>
+        <p>Cada día contigo es un jardín en flor 🌸</p>
+        <button onclick="mostrarRamo()">¡Toca para tu ramo!</button>
+    </div>
+
+    <script>
+        // Flores de fondo
+        function crearFlor() {
+            const flor = document.createElement('div');
+            flor.innerHTML = '🌸';
+            flor.className = 'flores';
+            flor.style.left = Math.random() * window.innerWidth + 'px';
+            flor.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(flor);
+            setTimeout(() => flor.remove(), 5000);
+        }
+        setInterval(crearFlor, 300);
+
+        // Ramo de flores
+        function mostrarRamo() {
+            const ramo = document.createElement('div');
+            ramo.className = 'ramo';
+            ramo.innerHTML = '🌹🌻🌷🌼🌺💐';  // Diferentes flores
+            document.body.appendChild(ramo);
+            
+            // Eliminar el ramo después de 5 segundos (opcional)
+            setTimeout(() => ramo.remove(), 5000);
+        }
+    </script>
+</body>
+</html>
