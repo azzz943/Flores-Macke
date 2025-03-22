@@ -3,131 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flores para Ti Corazón 💛</title>
+    <title>Flores Amarillas para Ti 💐</title>
     <style>
-        /* Estilos CSS */
         body {
-            background: #1a1a1a;
-            overflow: hidden;
+            background: #2c3e50;
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', cursive;
         }
 
         .container {
             position: relative;
-            height: 100vh;
-        }
-
-        .titulo {
-            position: absolute;
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #FFD700;
             text-align: center;
-            font-size: 2em;
-            z-index: 1000;
         }
 
-        /* Animaciones de flores */
-        .flower {
-            position: absolute;
-            animation: grow 4s ease-out forwards;
-        }
-
-        @keyframes grow {
-            from { transform: scale(0); }
-            to { transform: scale(1); }
-        }
-
-        .flower__leaf {
-            background: #FFD700;
-            width: 20px;
-            height: 40px;
-            border-radius: 50%;
-            position: absolute;
-        }
-
-        .flower__white-circle {
-            width: 15px;
-            height: 15px;
-            background: white;
-            border-radius: 50%;
+        .flores-container {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            animation: pulse 2s infinite;
         }
 
-        /* Efecto de luces */
-        .flower__light {
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            position: absolute;
-            border-radius: 50%;
-            animation: twinkle 1.5s infinite;
+        .mensaje {
+            position: relative;
+            z-index: 2;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+        .mensaje-principal {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: fadeIn 2s;
+        }
+
+        .te-quiero {
+            font-size: 3em;
+            animation: fadeIn 3s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
-<body class="container">
-    <audio id="audio" loop>
-        <source src="https://cdn.pixabay.com/download/audio/2022/03/19/audio_5a5b8d2f0f.mp3" type="audio/mpeg">
+<body>
+    <!-- Música Flores Amarillas (versión instrumental) -->
+    <audio autoplay loop>
+        <source src="https://cdn.pixabay.com/download/audio/2023/04/28/audio_aa0d0d7847.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
     </audio>
 
-    <h1 class="titulo">Estas flores amarillas son para ti.<br>💛</h1>
+    <div class="container">
+        <div class="flores-container">
+            <img src="https://img.freepik.com/vector-premium/ramo-flores-amarillas-diseno-dibujado-mano_52683-84644.jpg" 
+                 alt="Flores Amarillas" 
+                 style="width: 500px; height: auto;">
+        </div>
 
-    <div class="flowers" id="flowersContainer"></div>
-
-    <script>
-        // Función para crear flores dinámicas
-        function crearFlor(x, y) {
-            const flor = document.createElement('div');
-            flor.className = 'flower';
-            flor.style.left = x + 'px';
-            flor.style.top = y + 'px';
-
-            // Pétalos
-            for (let i = 0; i < 4; i++) {
-                const petalo = document.createElement('div');
-                petalo.className = `flower__leaf flower__leaf--${i + 1}`;
-                petalo.style.transform = `rotate(${i * 90}deg) translateY(-20px)`;
-                flor.appendChild(petalo);
-            }
-
-            // Centro de la flor
-            const centro = document.createElement('div');
-            centro.className = 'flower__white-circle';
-            flor.appendChild(centro);
-
-            // Efecto de brillo
-            for (let i = 0; i < 8; i++) {
-                const luz = document.createElement('div');
-                luz.className = `flower__light flower__light--${i + 1}`;
-                luz.style.transform = `rotate(${i * 45}deg) translate(30px)`;
-                flor.appendChild(luz);
-            }
-
-            return flor;
-        }
-
-        // Generar flores al cargar la página
-        window.onload = function() {
-            const container = document.getElementById('flowersContainer');
-            for (let i = 0; i < 7; i++) {
-                const x = Math.random() * window.innerWidth;
-                const y = Math.random() * window.innerHeight;
-                container.appendChild(crearFlor(x, y));
-            }
-
-            // Iniciar música
-            document.getElementById('audio').play();
-        };
-    </script>
+        <div class="mensaje">
+            <div class="mensaje-principal">Para ti este ramito de flores amarillas</div>
+            <div class="te-quiero">TE QUIERO MUCHO</div>
+        </div>
+    </div>
 </body>
 </html>
