@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flores Amarillas para Ti 💐</title>
+    <title>Para Ti 💐</title>
     <style>
         body {
             background: #2c3e50;
@@ -48,9 +48,22 @@
             animation: fadeIn 3s;
         }
 
+        .corazones {
+            position: fixed;
+            font-size: 25px;
+            color: #FFD700;
+            animation: caer 5s linear infinite;
+            opacity: 0.7;
+        }
+
         @keyframes pulse {
             0%, 100% { transform: translate(-50%, -50%) scale(1); }
             50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        @keyframes caer {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
         }
 
         @keyframes fadeIn {
@@ -60,17 +73,11 @@
     </style>
 </head>
 <body>
-    <!-- Música Flores Amarillas (versión instrumental) -->
-    <audio autoplay loop>
-        <source src="https://cdn.pixabay.com/download/audio/2023/04/28/audio_aa0d0d7847.mp3" type="audio/mpeg">
-        Tu navegador no soporta audio.
-    </audio>
-
     <div class="container">
         <div class="flores-container">
             <img src="https://img.freepik.com/vector-premium/ramo-flores-amarillas-diseno-dibujado-mano_52683-84644.jpg" 
-                 alt="Flores Amarillas" 
-                 style="width: 500px; height: auto;">
+                 alt="Ramo de flores amarillas" 
+                 style="width: 400px; height: auto;">
         </div>
 
         <div class="mensaje">
@@ -78,5 +85,25 @@
             <div class="te-quiero">TE QUIERO MUCHO</div>
         </div>
     </div>
+
+    <script>
+        // Crear lluvia de corazones
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.innerHTML = '💛';
+            corazon.className = 'corazones';
+            corazon.style.left = Math.random() * 100 + 'vw';
+            corazon.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(corazon);
+            
+            setTimeout(() => corazon.remove(), 5000);
+        }
+        setInterval(crearCorazon, 300);
+
+        // Música de fondo
+        const audio = new Audio('https://cdn.pixabay.com/download/audio/2023/04/28/audio_aa0d0d7847.mp3');
+        audio.loop = true;
+        audio.play();
+    </script>
 </body>
 </html>
