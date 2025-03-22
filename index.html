@@ -1,109 +1,35 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Ti 💐</title>
-    <style>
-        body {
-            background: #2c3e50;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            font-family: 'Arial', cursive;
-        }
-
-        .container {
-            position: relative;
-            text-align: center;
-        }
-
-        .flores-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: pulse 2s infinite;
-        }
-
-        .mensaje {
-            position: relative;
-            z-index: 2;
-            color: #FFD700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin-top: 20px;
-        }
-
-        .mensaje-principal {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            animation: fadeIn 2s;
-        }
-
-        .te-quiero {
-            font-size: 3em;
-            animation: fadeIn 3s;
-        }
-
-        .corazones {
-            position: fixed;
-            font-size: 25px;
-            color: #FFD700;
-            animation: caer 5s linear infinite;
-            opacity: 0.7;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.05); }
-        }
-
-        @keyframes caer {
-            0% { transform: translateY(-100vh) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(360deg); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
-</head>
 <body>
-    <div class="container">
-        <div class="flores-container">
-            <img src="https://img.freepik.com/vector-premium/ramo-flores-amarillas-diseno-dibujado-mano_52683-84644.jpg" 
-                 alt="Ramo de flores amarillas" 
-                 style="width: 400px; height: auto;">
-        </div>
+  <div class="night"></div>
+  <div class="flowers">
+    <div class="flower flower--1">
+      <div class="flower__leafs flower__leafs--1">
+        <div class="flower__leaf flower__leaf--1"></div>
+        <div class="flower__leaf flower__leaf--2"></div>
+        <div class="flower__leaf flower__leaf--3"></div>
+        <div class="flower__leaf flower__leaf--4"></div>
+        <div class="flower__white-circle"></div>
 
-        <div class="mensaje">
-            <div class="mensaje-principal">Para ti este ramito de flores amarillas</div>
-            <div class="te-quiero">TE QUIERO MUCHO</div>
-        </div>
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+        <div class="flower__line__leaf flower__line__leaf--5"></div>
+        <div class="flower__line__leaf flower__line__leaf--6"></div>
+      </div>
     </div>
 
-    <script>
-        // Crear lluvia de corazones
-        function crearCorazon() {
-            const corazon = document.createElement('div');
-            corazon.innerHTML = '💛';
-            corazon.className = 'corazones';
-            corazon.style.left = Math.random() * 100 + 'vw';
-            corazon.style.animationDuration = Math.random() * 3 + 2 + 's';
-            document.body.appendChild(corazon);
-            
-            setTimeout(() => corazon.remove(), 5000);
-        }
-        setInterval(crearCorazon, 300);
-
-        // Música de fondo
-        const audio = new Audio('https://cdn.pixabay.com/download/audio/2023/04/28/audio_aa0d0d7847.mp3');
-        audio.loop = true;
-        audio.play();
-    </script>
-</body>
-</html>
+    <div class="flower flower--2">
+      <div class="flower__leafs flower__leafs--2">
+        <div class="flower__leaf flower__leaf--1"></div>
+        <div class="flower__leaf flower__leaf--2"></div>
